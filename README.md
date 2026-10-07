@@ -78,7 +78,7 @@ Basic은 VM의 공용 IP로 웹 애플리케이션에 접속합니다. Advanced�
 
 기존 [Azure Basic Workshop](https://github.com/Anna-Jeong-MS/AzureBasicWorkshop)의 실습 내용을 유지하며 문서 구조와 경로를 정리했습니다.
 
-기여 방법은 [CONTRIBUTING](CONTRIBUTING.md), 보안 문제 제보는 [SECURITY](SECURITY.md), 행동 강령은 [Microsoft Open Source Code of Conduct](.github/CODE_OF_CONDUCT.md)를 참고합니다.
+기여 방법은 [CONTRIBUTING](CONTRIBUTING.md), 문의 안내는 [SUPPORT](SUPPORT.md), 보안 문제 제보는 [SECURITY](SECURITY.md), 행동 강령은 [Microsoft Open Source Code of Conduct](.github/CODE_OF_CONDUCT.md)를 참고합니다.
 
 ## 라이선스
 
