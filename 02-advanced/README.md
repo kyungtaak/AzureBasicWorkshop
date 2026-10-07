@@ -2,7 +2,7 @@
 
 이번 실습에서는 애저에서 가장 기본적인 형태의 웹 애플리케이션을 배포하는 방법에 대해 알아보도록 하겠습니다. 가상 머신에 웹 애플리케이션을 배포하고 웹 애플리케이션의 데이터를 관리하기 위한 SQL 데이터베이스를 구성해 보도록 하겠습니다. 부하 분산 장치의 프런트 엔드 IP를 웹 애플리케이션을 진입점으로 사용하고 가상 머신을 백 엔드 풀로 사용합니다. 이렇게 구성하면 웹 애플리케이션을 논리적으로 격리할 수 있으며, 추후 애플리케이션의 확장을 고려한 아키텍처를 설계할 수 있습니다.
 
-![Untitled](images/Untitled.png)
+![Advanced 실습의 웹 애플리케이션과 SQL Database 구성](assets/01-architecture.png)
 
 ### 실습 내용
 
@@ -22,13 +22,13 @@
 
 ## 가상 네트워크 만들기
 
-![Untitled](images/Untitled%201.png)
+![가상 네트워크 만들기 단계 안내](assets/02-virtual-network-overview.png)
 
 1. 왼쪽 상단 검색창에서 `가상 네트워크` 입력하여 가상 네트워크 화면으로 이동합니다.
 2. `만들기` 버튼을 클릭합니다.
 3. 아래와 같이 구성하고 `다음: IP 주소` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%202.png)
+![BasicVNet 가상 네트워크 기본 설정](assets/03-virtual-network-basics.png)
 
 - 구독 : 생성한 구독 선택
 - 리소스 그룹 : 새로 만들기 버튼 클릭 후, BasicWorkshopRG 입력하고 `확인` 버튼 클릭
@@ -37,19 +37,19 @@
 
 1. 아래와 같이 구성된 것을 확인하고 `검토 + 만들기` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%203.png)
+![가상 네트워크 구성 검토 화면](assets/04-virtual-network-review.png)
 
 1. `만들기` 버튼을 클릭하여 가상 네트워크를 생성합니다.
 
 ## 부하 분산 장치 만들기
 
-![Untitled](images/Untitled%204.png)
+![Load Balancer 만들기 단계 안내](assets/05-load-balancer-overview.png)
 
 1. 왼쪽 상단 검색창에서 `부하 분산 장치` 입력하여 부하 분산 장치 화면으로 이동합니다.
 2. `만들기` 버튼을 클릭합니다.
 3. 아래와 같이 구성합니다.
 
-![Untitled](images/Untitled%205.png)
+![Load Balancer 기본 설정](assets/06-load-balancer-basics.png)
 
 - 구독 : 생성한 구독 선택
 - 리소스 그룹 : BasicWorkshopRG
@@ -61,7 +61,7 @@
 1. `다음: 프런트 엔드 IP 구성` 버튼을 클릭합니다.
 2. `프런트 엔드 IP 구성 추가` 버튼을 클릭하고 아래와 같이 구성 후, `추가` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%206.png)
+![Load Balancer 프런트 엔드 IP 설정](assets/07-load-balancer-frontend.png)
 
 - 이름 : todoPublic
 - IP 버전 : IPv4
@@ -72,7 +72,7 @@
 1. `다음: 백 엔드 풀` 버튼을 클릭하고 `백 엔드 풀 추가`를 클릭합니다.
 2. 아래와 같이 구성하고 `저장` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%207.png)
+![TodoBackend 백 엔드 풀 설정](assets/08-load-balancer-backend.png)
 
 - 이름 : TodoBackend
 - 가상 네트워크 : BasicVNet(BasicWorkshopRG)
@@ -81,11 +81,11 @@
 1. `다음: 인바운드 규칙` 버튼을 클릭합니다.
 2. 부하 분산 규칙을 생성하여 적용해 보도록 하겠습니다. `부하 분산 규칙 추가` 버튼을 클릭하고 다음과 같이 구성합니다.
 
-![Untitled](images/Untitled%208.png)
+![부하 분산 규칙 설정](assets/09-load-balancing-rule.png)
 
 1. 상태 프로브는 백 엔드 풀의 정상 상태를 확인합니다. 상태 프로브에서 `새로 만들기`를 클릭하고 다음과 같이 설정하고 `확인` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%209.png)
+![백 엔드 상태 프로브 설정](assets/10-health-probe.png)
 
 1. TodoRule이 정상적으로 추가된 것을 확인한 뒤, `검토 + 만들기` 버튼을 클릭하고 `만들기` 버튼을 클릭하여 부하 분산 장치를 생성합니다.
 
@@ -93,16 +93,16 @@
 
 ### 가상 머신 만들기
 
-![Untitled](images/Untitled%2010.png)
+![가상 머신 만들기 단계 안내](assets/11-virtual-machine-overview.png)
 
 1. 왼쪽 상단 검색창에서 `가상 머신` 입력하여 가상 머신 화면으로 이동합니다.
 2. `만들기` 버튼을 클릭하고 Azure 가상 머신을 선택합니다.
 
-![Untitled](images/Untitled%2011.png)
+![Azure 가상 머신 만들기 메뉴](assets/12-virtual-machine-create.png)
 
 1. 아래와 같이 구성하고 `네트워킹` 탭을 선택하거나 `다음: 디스크, 다음: 네트워킹`을 차례로 선택합니다.
 
-![Untitled](images/Untitled%2012.png)
+![TodoVM 가상 머신 기본 설정](assets/13-virtual-machine-basics.png)
 
 - 구독 : 생성한 구독 선택
 - 리소스 그룹 : BasicWorkshopRG
@@ -110,7 +110,7 @@
 - 지역 : (Asia Pacific) Korea Central
 1. 네트워킹 탭에서 다음 정보를 선택하거나 입력합니다.
 
-![Untitled](images/Untitled%2013.png)
+![가상 머신의 applicationSubnet 연결 설정](assets/14-virtual-machine-networking.png)
 
 - 가상 네트워크 : BasicVNet
 - 서브넷 : `서브넷 구성 관리` 클릭
@@ -125,7 +125,7 @@
 
 1. 부하 분산에서 `기존 부하 분산 솔루션 뒤에 이 가상 머신을 배치하겠습니까?` 체크박스를 클릭하고 아래와 같이 구성합니다.
 
-![Untitled](images/Untitled%2014.png)
+![가상 머신과 TodoBackend 백 엔드 풀 연결 설정](assets/15-virtual-machine-load-balancer.png)
 
 - 부하 분산 옵션 : Azure Load Balancer
 - 부하 분산 장치 선택 : todoLB
@@ -134,18 +134,18 @@
 1. `네트워크 보안 그룹 구성에서 새로 만들기를 클릭합니다. (중요)`
 2. 인바운드 보안 규칙 추가를 클릭하고 다음과 같이 설정 후 추가 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%2015.png)
+![가상 머신의 인바운드 보안 규칙 설정](assets/16-network-security-rule.png)
 
 1. `검토 + 만들기` 버튼을 클릭하고 설정을 검토한 다음 `만들기`를 선택합니다. 새 키 쌍 생성 화면이 뜨면 `프라이빗 키 다운로드 및 리소스 만들기` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%2016.png)
+![SSH 프라이빗 키 다운로드 화면](assets/17-ssh-key-download.png)
 
 ### 베스천 배포하기
 
 1. `가상 머신 화면`에서 TodoVM1을 클릭하고, 왼쪽 `베스천` 메뉴를 클릭합니다.
 2. `기본값을 사용하여 Azure Bastion …` ****버튼을 클릭합니다.
 
-![Untitled](images/Untitled%2017.png)
+![가상 머신의 Bastion 배포 화면](assets/18-bastion-deployment.png)
 
 ### 웹 애플리케이션 배포
 
@@ -153,7 +153,7 @@
 
 1. 베스천이 생성되면 아래 정보를 입력하고 연결 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%2018.png)
+![Bastion 가상 머신 연결 화면](assets/19-bastion-connection.png)
 
 1. 아래 명령어를 사용하여 깃허브에서 `TodoApp` 리포지토리를 복제합니다.
 
@@ -214,23 +214,23 @@ sudo uvicorn main:app --host 0.0.0.0 --port 80 > app.log 2>&1 &
 
 1. `부하 분산 장치 화면`에서 생성한 `TodoLB`에서 왼쪽 `프런트 엔드 IP` 구성 메뉴를 클릭합니다.
 
-![Untitled](images/Untitled%2019.png)
+![Load Balancer 프런트 엔드 IP 주소 확인 화면](assets/20-load-balancer-public-ip.png)
 
 1. 새 탭에서 해당 퍼블릭 아이피를 통해 정상적으로 웹 애플리케이션에 접속되는 것을 확인합니다.
 
-![Untitled](images/Untitled%2020.png)
+![브라우저의 Todo 웹 애플리케이션 확인 화면](assets/21-application-browser.png)
 
 ## SQL 데이터베이스 연동
 
 ### SQL 데이터베이스 서버 만들기
 
-![Untitled](images/Untitled%2021.png)
+![SQL 서버 만들기 단계 안내](assets/22-sql-server-overview.png)
 
 1. 왼쪽 상단 검색창에서 `SQL Server` 입력하여 SQL Server 화면으로 이동합니다.
 2. `만들기` 버튼을 클릭합니다.
 3. 아래와 같이 구성하고 `검토 + 만들기` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%2022.png)
+![SQL 서버 기본 설정](assets/23-sql-server-basics.png)
 
 - 서버 이름 : basic-workshop-<name>
 - 위치 : (Asia Pacific) 한국 중부
@@ -245,7 +245,7 @@ sudo uvicorn main:app --host 0.0.0.0 --port 80 > app.log 2>&1 &
 1. 왼쪽 상단 검색창에서 `SQL 데이터베이스` 입력하여 SQL 데이터베이스 화면으로 이동합니다.
 2. `만들기` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%2023.png)
+![SQL 데이터베이스 만들기 화면](assets/24-sql-database-create.png)
 
 1. 아래와 같이 구성합니다.
 - 구독 : 생성한 구독 선택
@@ -255,18 +255,18 @@ sudo uvicorn main:app --host 0.0.0.0 --port 80 > app.log 2>&1 &
 
 1. 나머지 설정은 그대로 두고, `검토+만들기` 버튼을 클릭합니다. 다음과 같은 화면이 뜨면 구성 내용을 확인하고 `만들기` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%2024.png)
+![SQL 데이터베이스 구성 검토 화면](assets/25-sql-database-review.png)
 
 ### 데이터베이스 프라이빗 엔드포인트 만들기
 
 1. 왼쪽 메뉴에서 `네트워킹`을 클릭하고 `프라이빗 액세스` 탭을 클릭합니다.
 2. `프라이빗 엔드포인트 만들기`를 클릭합니다.
 
-![Untitled](images/Untitled%2025.png)
+![SQL 서버의 프라이빗 액세스 설정](assets/26-sql-private-access.png)
 
 1. 아래와 같이 구성 후, `다음: 리소스 >` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%2026.png)
+![SQL Private Endpoint 기본 설정](assets/27-private-endpoint-basics.png)
 
 - 구독 : 생성한 구독 선택
 - 리소스 그룹 : BasicWorkshopRG
@@ -278,7 +278,7 @@ sudo uvicorn main:app --host 0.0.0.0 --port 80 > app.log 2>&1 &
 1. 대상 하위 리소스가 자동으로 `sqlServer`로 선택되면 `다음: 가상 네트워크 >` 버튼을 클릭합니다.
 2. 아래와 같이 설정한 뒤 나머지 설정은 그대로 두고 프라이빗 엔드포인트를 생성합니다.
 
-![Untitled](images/Untitled%2027.png)
+![SQL Private Endpoint의 가상 네트워크 설정](assets/28-private-endpoint-networking.png)
 
 - 가상 네트워크 : BasicVNet(basicworkshoprg)
 - 서브넷 : default
@@ -287,15 +287,15 @@ sudo uvicorn main:app --host 0.0.0.0 --port 80 > app.log 2>&1 &
 
 1. 리소스가 생성되면 왼쪽 메뉴에서 `개요`를 클릭하고 `서버 이름`을 복사합니다.
 
-![Untitled](images/Untitled%2028.png)
+![SQL 서버 이름 확인 화면](assets/29-sql-server-name.png)
 
 1. 전 단계에서 띄워둔 웹 페이지(부하 분산 장치의 프런트 엔드 IP)로 접속하고 `Connect to DB` 탭을 클릭합니다.
 
-![Untitled](images/Untitled%2029.png)
+![Todo 웹 애플리케이션의 Connect to DB 탭](assets/30-application-database-tab.png)
 
 1. 아래와 같이 구성 후, `Connect` 버튼을 클릭합니다.
 
-![Untitled](images/Untitled%2030.png)
+![Todo 웹 애플리케이션의 SQL 연결 설정](assets/31-application-database-connect.png)
 
 - Server Name : SQL 데이터베이스 서버 이름
 - Server Admin : db-admin
@@ -303,7 +303,7 @@ sudo uvicorn main:app --host 0.0.0.0 --port 80 > app.log 2>&1 &
 
 1. 정상적으로 연결이 완료되면, 다시 List 화면으로 돌아와서 기능들을 테스트합니다.
 
-![Untitled](images/Untitled%2031.png)
+![SQL 연결 후 Todo 목록 기능 확인 화면](assets/32-application-database-result.png)
 
 ## 리소스 정리
 
