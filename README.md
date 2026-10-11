@@ -56,7 +56,7 @@ Azure Basic Workshop은 애저 인프라 코어 서비스들을 직접 Hands on 
 | [Advanced](02-advanced/README.md) | 120분 | Load Balancer·VM 구성과 Private Endpoint 기반 SQL Database 연동 |
 | 합계 | 240분(4시간) | 공식 워크샵 agenda 기준 |
 
-위 배분은 공식 agenda의 전체 시간(4시간)을 단계 수와 복잡도에 비례해 나눈 추정치이며, 실제로 측정한 값이 아닙니다. 이론 세션 없이 실습만 진행하는 자기 주도 학습자는 사전 준비·Basic·Advanced를 합쳐 약 200분이 걸릴 것으로 예상합니다.
+표의 예상 소요 시간은 공식 agenda의 전체 시간(4시간)을 단계 수와 복잡도에 따라 배분했습니다. 이론 세션 없이 실습만 진행할 때의 예상 소요 시간은 사전 준비·Basic·Advanced를 합쳐 약 200분입니다.
 
 <!-- TODO: 저자 확인 — 위 추정치와 실제 E2E 완주 시간의 차이, 랩별 시간 재배분 필요 여부 -->
 <!-- TODO: 저자 작성 — 이론 세션 자료(슬라이드 등)를 이 저장소에 포함할지 결정 -->
