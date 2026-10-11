@@ -1,6 +1,6 @@
 ---
 title: 00. 사전 준비
-duration_minutes:
+duration_minutes: 10
 last_updated: 2026-10-07
 ---
 
@@ -20,9 +20,9 @@ Azure Pass를 활성화하고 Microsoft Entra ID 사용자를 생성합니다. A
 
 ## 소요 시간
 
-확인 전입니다.
+약 10분입니다. [워크샵 전체 agenda](../README.md#소요-시간)(4시간)의 계획 배분이며, 실제로 측정한 값이 아닙니다.
 
-<!-- TODO: 저자 작성 — 실제 준비 시간을 확인한 뒤 duration_minutes와 본문에 기록 -->
+<!-- TODO: 저자 확인 — 실제 완주 시간과의 차이 -->
 
 ## 실습 단계
 

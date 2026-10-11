@@ -1,6 +1,6 @@
 ---
 title: 02. Advanced
-duration_minutes:
+duration_minutes: 120
 last_updated: 2026-10-07
 ---
 
@@ -22,9 +22,9 @@ last_updated: 2026-10-07
 
 ## 소요 시간
 
-확인 전입니다.
+약 120분입니다. [워크샵 전체 agenda](../README.md#소요-시간)(4시간)의 계획 배분이며, 실제로 측정한 값이 아닙니다. 아래 NAT Gateway 단계 누락 등 본문 확인 사항이 남아 있어 실제 소요 시간은 달라질 수 있습니다.
 
-<!-- TODO: 저자 작성 — 실제 완주 시간을 확인한 뒤 duration_minutes와 본문에 기록 -->
+<!-- TODO: 저자 확인 — 실제 완주 시간과의 차이 -->
 
 ## 실습 단계
 

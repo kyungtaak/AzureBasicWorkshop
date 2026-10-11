@@ -1,12 +1,12 @@
 ---
 type: workshop
 title: Azure Basic Workshop
-description: Azure Portal에서 가상 네트워크, VM, Load Balancer와 SQL Database를 구성하고 웹 애플리케이션을 배포하는 한국어 워크샵
-level: beginner
+description: Azure Portal에서 가상 네트워크, VM, Load Balancer와 Private Endpoint 기반 SQL Database를 구성하고 웹 애플리케이션을 배포하는 한국어 워크샵
+level: intermediate
 authors: [Anna Jeong]
 contacts: ["@Anna-Jeong-MS"]
-duration_minutes:
-tags: [azure, virtual-network, virtual-machine, load-balancer, azure-sql]
+duration_minutes: 240
+tags: [azure, virtual-network, virtual-machine, load-balancer, azure-sql, private-endpoint]
 language: ko
 execution: [portal]
 status: draft
@@ -19,6 +19,8 @@ original_content_date: 2025-04-17
 # Azure Basic Workshop
 
 Azure Basic Workshop은 애저 인프라 코어 서비스들을 직접 Hands on Lab 할 수 있는 컨텐츠입니다.
+
+공식 워크샵 agenda는 L200 수준의 4시간(240분) 세션이며, Compute·Network·Storage·Security 서비스를 소개하는 이론 세션과 이 저장소의 포털 실습 세션으로 구성됩니다. 이론 세션 자료(슬라이드)는 이 저장소에 포함되어 있지 않습니다.
 
 > **참고**: 현재 문서 상태는 `draft`입니다. 최신 Azure Portal에서 처음부터 끝까지 실행한 검증일은 아직 기록되지 않았습니다.
 
@@ -46,9 +48,20 @@ Azure Basic Workshop은 애저 인프라 코어 서비스들을 직접 Hands on 
 
 ## 소요 시간
 
-전체 및 랩별 소요 시간은 확인 전입니다.
+이 워크샵은 Compute·Network·Storage·Security 서비스를 소개하는 이론 세션과 포털 실습 세션으로 구성된 4시간(240분) 강의입니다.
 
-<!-- TODO: 저자 작성 — 실제 완주 시간을 확인한 뒤 루트·랩 duration_minutes와 본문을 함께 갱신 -->
+| 세션 | 소요 시간 | 비고 |
+|---|---|---|
+| 이론 세션 | 40분 | Compute, Network, Storage, Security 서비스 소개. 이 저장소에는 자료가 포함되지 않음 |
+| [사전 준비](00-prerequisites/README.md) | 10분 | Azure Pass 활성화, Microsoft Entra ID 사용자 생성 |
+| [Basic](01-basic/README.md) | 70분 | 리소스 그룹·가상 네트워크·VM 구성과 웹 애플리케이션 배포 |
+| [Advanced](02-advanced/README.md) | 120분 | Load Balancer·VM 구성과 Private Endpoint 기반 SQL Database 연동 |
+| 합계 | 240분(4시간) | 공식 워크샵 agenda 기준 |
+
+위 배분은 공식 agenda의 전체 시간(4시간)을 단계 수와 복잡도에 비례해 나눈 추정치이며, 실제로 측정한 값이 아닙니다. 이론 세션 없이 실습만 진행하는 자기 주도 학습자는 사전 준비·Basic·Advanced를 합쳐 약 200분이 걸릴 것으로 예상합니다.
+
+<!-- TODO: 저자 확인 — 위 추정치와 실제 E2E 완주 시간의 차이, 랩별 시간 재배분 필요 여부 -->
+<!-- TODO: 저자 작성 — 이론 세션 자료(슬라이드 등)를 이 저장소에 포함할지 결정 -->
 
 ## 실행 환경과 외부 의존성
 
