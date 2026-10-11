@@ -11,7 +11,7 @@ language: ko
 execution: [portal]
 status: draft
 source: original
-last_updated: 2026-10-07
+last_updated: 2026-10-11
 validated_on:
 original_content_date: 2025-04-17
 ---
@@ -21,8 +21,6 @@ original_content_date: 2025-04-17
 Azure Basic Workshop은 애저 인프라 코어 서비스들을 직접 Hands on Lab 할 수 있는 컨텐츠입니다.
 
 공식 워크샵 agenda는 L200 수준의 4시간(240분) 세션이며, Compute·Network·Storage·Security 서비스를 소개하는 이론 세션과 이 저장소의 포털 실습 세션으로 구성됩니다. 이론 세션 자료(슬라이드)는 이 저장소에 포함되어 있지 않습니다.
-
-> **참고**: 현재 문서 상태는 `draft`입니다. 최신 Azure Portal에서 처음부터 끝까지 실행한 검증일은 아직 기록되지 않았습니다.
 
 ## 사전 요구사항
 
@@ -67,12 +65,14 @@ Azure Basic Workshop은 애저 인프라 코어 서비스들을 직접 Hands on 
 
 이 워크샵은 포털형입니다. Azure Portal에서 리소스를 구성하고, Azure Bastion으로 VM에 접속해 본문의 명령을 실행합니다. Codespaces나 로컬 개발 환경을 별도로 구성하지 않습니다.
 
-| 의존성 | 사용 위치 | 확인 사항 |
-|---|---|---|
-| [BasicApp](https://github.com/Anna-Jeong-MS/BasicApp) | Basic의 웹 애플리케이션 배포 | 접근 가능성·라이선스·크기·대체 경로 확인 필요 |
-| [TodoApp](https://github.com/Anna-Jeong-MS/TodoApp) | Advanced의 웹 애플리케이션과 SQL 연결 | 접근 가능성·라이선스·크기·대체 경로 확인 필요 |
-| Ubuntu·Python 패키지 저장소 | VM에서 패키지 설치 | 본문의 이미지·설치 명령과 현재 패키지 조합 재검증 필요 |
-| [Microsoft 패키지 저장소](https://packages.microsoft.com/) | Advanced의 ODBC 드라이버 설치 | VM 운영체제와 드라이버 호환성 재검증 필요 |
+| 의존성 | 사용 위치 |
+|---|---|
+| [BasicApp](https://github.com/Anna-Jeong-MS/BasicApp) | Basic의 웹 애플리케이션 배포 |
+| [TodoApp](https://github.com/Anna-Jeong-MS/TodoApp) | Advanced의 웹 애플리케이션과 SQL 연결 |
+| Ubuntu·Python 패키지 저장소 | VM에서 패키지 설치 |
+| [Microsoft 패키지 저장소](https://packages.microsoft.com/) | Advanced의 ODBC 드라이버 설치 |
+
+<!-- TODO: 저자 확인 — BasicApp·TodoApp의 접근 가능성·라이선스·크기·대체 경로, Ubuntu 이미지·설치 명령·Python 패키지 조합과 ODBC 드라이버의 현재 호환성 -->
 
 외부 앱과 패키지는 이 저장소에 포함하지 않습니다. 각 랩에서 안내하는 외부 저장소와 서비스를 사용합니다.
 
@@ -82,9 +82,7 @@ Basic은 VM의 공용 IP로 웹 애플리케이션에 접속합니다. Advanced�
 
 실습 후에는 [Basic 정리](01-basic/README.md#정리-clean-up)와 [Advanced 정리](02-advanced/README.md#정리-clean-up)에 따라 실습 리소스 그룹을 정리합니다. 삭제 전에는 해당 리소스 그룹에 다른 용도의 리소스가 없는지 확인합니다.
 
-문서의 `last_updated`는 수정일입니다. `validated_on`은 사람이 포털에서 전체 실습을 완료한 날짜만 기록하며, 현재는 공란입니다. 원본 콘텐츠 수정일은 `2025-04-17`입니다.
-
-<!-- TODO: 저자 검증 — 포털 UI와 스크린샷, Advanced의 NAT Gateway 누락·VM 이름 불일치, 외부 앱 및 패키지 설치, 리소스 삭제 완료 확인 -->
+<!-- TODO: 저자 검증 — 포털 UI와 스크린샷, Advanced의 NAT Gateway 누락·VM 이름 불일치, 리소스 삭제 완료 확인 -->
 <!-- TODO: 저자 확인 — authors·contacts가 현재 저자 표기와 유지보수 연락처에 맞는지 확인 -->
 
 ## 출처와 기여

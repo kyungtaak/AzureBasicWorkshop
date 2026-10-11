@@ -1,7 +1,7 @@
 ---
 title: 01. Basic
 duration_minutes: 70
-last_updated: 2026-10-07
+last_updated: 2026-10-11
 ---
 
 # 01. Basic
@@ -187,9 +187,7 @@ sudo uvicorn main:app --host 0.0.0.0 --port 80 > app.log 2>&1 &
 
 ## 트러블슈팅
 
-VM·Bastion 연결, 패키지 설치와 웹 접속 오류의 해결 절차는 저자 확인 전입니다. 본문의 Ubuntu 이미지와 설치 명령은 현재 환경에서 재검증해야 합니다.
-
-<!-- TODO: 저자 작성 — 실제 확인한 오류 메시지와 해결 방법 -->
+<!-- TODO: 저자 작성 — VM·Bastion 연결, 패키지 설치와 웹 접속에서 실제 확인한 오류 메시지와 해결 방법 -->
 
 ## 이전·다음
 
